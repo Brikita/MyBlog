@@ -37,7 +37,7 @@ export default function Profile() {
             return {...prevBlog,
                    [name]: value
                    }
-        }
+        })
     }
     /*function findBlog() {
         return blog.find(note => {
