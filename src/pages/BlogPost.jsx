@@ -38,7 +38,7 @@ const BlogPost = ({ post, onLike, onAddComment }) => {
       <div>
         <form onSubmit={handleCommentSubmit}>
           <input type="text" value={comment} onChange={handleCommentChange} placeholder="Add a comment" />
-          <button className='commentButton' type="submit"><i class="fa fa-paper-plane"></i></button>
+          <button className='commentButton' type="submit"><i className="fa fa-paper-plane"></i></button>
         </form>
       </div>
       <div className="comments">
