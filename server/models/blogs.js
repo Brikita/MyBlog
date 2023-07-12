@@ -37,7 +37,21 @@ const postSchema = new Schema({
         default: Date.now,
       },
     }],
-  }
+  },
+  likes: {
+    type: [{
+      user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+      },
+      likedAt: {
+        type: Date,
+        default: Date.now,
+      },
+    }],
+    default: [],
+  },
 });
 
 postSchema.pre('save', (next) => {
@@ -48,3 +62,4 @@ postSchema.pre('save', (next) => {
   
     next();
   });
+ 
