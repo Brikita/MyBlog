@@ -8,7 +8,7 @@ const app = express();
 const Blog = require("../models/blogs");
 
 //  middleware
-app.use(bodyParser.json);
+app.use(bodyParser.json());
 
 // updating endpoint
 
@@ -29,7 +29,17 @@ router.put("/updatePost/:id", async (req, res, next) => {
   } catch (err) {
     res.status(500).json({
       message: "Failed to update blog",
-      err: err.message,
+      err,
     });
   }
 });
+
+module.exports = router;
+
+//Test my Endpoint
+app.use('/api/user', router);
+
+//start the server
+app.listen(3000, ()=>{
+    console.log('Server is listening in the port 3000');
+})
