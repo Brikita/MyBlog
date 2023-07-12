@@ -70,3 +70,5 @@ blogSchema.pre("save", (next) => {
 
   next();
 });
+
+module.exports = mongoose.model('Blog', blogSchema)
