@@ -1,14 +1,18 @@
 const express = require("express");
 const router = express.Router();
+const bodyParser = require('body-parser')
 
 // test my endpoint
-const app = express()
+const app = express();
 
 const Blog = require("../models/blogs");
 
-router.post("/createPost", async (req, res, next) => {
-  const { title, author, content, tags } = req.body;
+app.use(bodyParser.json())
 
+router.post("/createPost", async (req, res, next) => {
+    console.log(req.body);
+  const { title, author, content, tags } = req.body;
+  
   const BlogPost = new Blog({
     title,
     author,
@@ -16,21 +20,26 @@ router.post("/createPost", async (req, res, next) => {
     tags,
   });
 
-  await Blog.save();
-
-  return;
-  res.status(201).json({
-    message: "Created the Blog",
-    data: { BlogPost },
-  });
+  await BlogPost.save();
+  try {
+    res.status(201).json({
+      message: "Created the Blog",
+      BlogPost,
+    });
+    console.log(content);
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to create Blog",
+      error: error.message,
+    });
+  }
 });
 
-module.exports = router
-
+module.exports = router;
 
 // create my test endpoint
-app.use('/api/user', router)
+app.use("/api/user", router);
 
 app.listen(3000, () => {
-    console.log('server is listening')
-})
+  console.log("server is listening");
+});
