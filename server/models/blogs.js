@@ -22,6 +22,22 @@ const postSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  comments: {
+    type: [{
+      author: {
+        type: String,
+        required: true,
+      },
+      content: {
+        type: String,
+        required: true,
+      },
+      createdAt: {
+        type: Date,
+        default: Date.now,
+      },
+    }],
+  }
 });
 
 postSchema.pre('save', (next) => {
