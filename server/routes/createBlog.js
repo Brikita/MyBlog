@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
+// test my endpoint
+const app = express()
+
 const Blog = require("../models/blogs");
 
 router.post("/createPost", async (req, res, next) => {
@@ -23,3 +26,11 @@ router.post("/createPost", async (req, res, next) => {
 });
 
 module.exports = router
+
+
+// create my test endpoint
+app.use('/api/user', router)
+
+app.listen(3000, () => {
+    console.log('server is listening')
+})
