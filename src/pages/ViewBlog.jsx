@@ -24,11 +24,11 @@ console.log(blogId);
   return (
   <div>
     <h1 className="blog-title">{blog.title}</h1>
-    {blog.tags?.map((tag) => <span className="blog-tags"> {tag} </span>)}
+    {blog.tags?.map((tag) => <span key={Math.random()} className="blog-tags"> {tag} </span>)}
     <div className="blog-content">{blog.content}</div>
     <div>{blog.author} <span>{blog.createdAt}</span></div>
     <div className="btn-container">
-      <Link className="btn" to={`/blogs/:id/edit`}>Edit</Link>
+      <Link className="btn" to={`/${blogId}/edit`}>Edit</Link>
       <button onClick={deletePost}>Delete</button>
     </div>
     <Link to="/profile">&#8592;  Back</Link>
