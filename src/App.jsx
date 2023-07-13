@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Blog from "./pages/Blog";
 import Signup from "./pages/signup";
+import BackendProfile from "./pages/backendProfile";
 import { Route, Routes } from "react-router-dom";
 
 export default function App() {
@@ -23,6 +24,10 @@ export default function App() {
           />
           <Route path="/signup" element={<Signup />} />
           <Route path="/Social-Blogging-App-2.0/signup" element={<Signup />} />
+          <Route path="/backendProfile" element={<BackendProfile />} />
+          <Route path="/Social-Blogging-App-2.0/backendProfile" element={<BackendProfile />} />
+          <Route path="/blogs/:id/edit" element={<Edit />} />
+          <Route path="/Social-Blogging-App-2.0/blogs/:id/edit" element={<Edit />} />
         </Routes>
       </div>
     </section>

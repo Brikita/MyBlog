@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 const mongoose = require("mongoose");
 
@@ -28,6 +29,7 @@ mongoose.connection.on("error", (err) => {
 
 //middleware
 app.use(bodyParser.json())
+app.use(cors())
 
 
 
