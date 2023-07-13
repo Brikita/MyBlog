@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+/* const mongoose = require("mongoose");
 
 mongoose
   .connect(
@@ -15,3 +15,4 @@ mongoose
 mongoose.connection.on("error", (err) => {
   console.log(`DB connection error ${err.message}`);
 });
+ */
