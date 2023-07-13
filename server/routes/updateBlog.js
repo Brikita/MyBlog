@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 // updating endpoint
 
-router.put("/updatePost/:id", async (req, res, next) => {
+router.put("/updateBlog/:id", async (req, res, next) => {
   const { title, content, tags } = req.body;
   const blogId = req.params.id;
 
