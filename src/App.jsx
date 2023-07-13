@@ -4,13 +4,15 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Blog from "./pages/Blog";
 import Signup from "./pages/signup";
+import Edit from "./pages/edit"
+import ViewBlog from "./pages/ViewBlog";
 import BackendProfile from "./pages/backendProfile";
 import { Route, Routes } from "react-router-dom";
 
 export default function App() {
   return (
     <section>
-      <Navbar className="navbar" />
+      <Navbar className="navbar" /> 
       <div>
         <Routes>
           <Route path="/" element={<Blog />} />
@@ -26,6 +28,8 @@ export default function App() {
           <Route path="/Social-Blogging-App-2.0/signup" element={<Signup />} />
           <Route path="/backendProfile" element={<BackendProfile />} />
           <Route path="/Social-Blogging-App-2.0/backendProfile" element={<BackendProfile />} />
+          <Route path="/Social-Blogging-App-2.0/:id" element={<ViewBlog />} />
+          <Route path="/:id" element={<ViewBlog />} />
           <Route path="/blogs/:id/edit" element={<Edit />} />
           <Route path="/Social-Blogging-App-2.0/blogs/:id/edit" element={<Edit />} />
         </Routes>

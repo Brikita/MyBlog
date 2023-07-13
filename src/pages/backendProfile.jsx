@@ -21,7 +21,7 @@ const backendProfile = () => {
         return (
         <div key={blog._id} className='blog-container'>
             <div className='blog-title'>
-                <Link to={`/blog/${blog._id}`}>{blog.title}</Link>
+                <Link to={`/${blog._id}`}>{blog.title}</Link>
             </div>
             <div className='blog-author' >{blog.author}    <span className='blog-date'>{blog.createdAt}</span></div>
         </div>)
