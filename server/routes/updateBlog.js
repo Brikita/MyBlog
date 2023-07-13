@@ -36,10 +36,11 @@ router.put("/updatePost/:id", async (req, res, next) => {
 
 module.exports = router;
 
-//Test my Endpoint
-app.use('/api/user', router);
+/* //Test my Endpoint
+app.use("/api/user", router);
 
 //start the server
-app.listen(3000, ()=>{
-    console.log('Server is listening in the port 3000');
-})
+app.listen(3000, () => {
+  console.log("Server is listening in the port 3000");
+});
+ */
