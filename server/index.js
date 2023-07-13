@@ -4,6 +4,12 @@ const bodyParser = require('body-parser')
 
 const mongoose = require("mongoose");
 
+const createBlogRouter = require('./routes/createBlog')
+const updateBlogRouter = require('./routes/updateBlog')
+const deleteBlogRouter = require('./routes/deleteBlog')
+const getBlogRouter = require('./routes/getBlogs')
+// connect to database
+
 mongoose
   .connect(
     "mongodb+srv://brikita:brian12@test.nlyxchf.mongodb.net/?retryWrites=true&w=majority",
@@ -23,15 +29,13 @@ mongoose.connection.on("error", (err) => {
 //middleware
 app.use(bodyParser.json())
 
-const createBlogRouter = require('./routes/createBlog')
-const updateBlogRouter = require('./routes/updateBlog')
-const deleteBlogRouter = require('./routes/deleteBlog')
 
 
 // create my test endpoint
 app.use("/api/user", createBlogRouter);
 app.use("/api/user", updateBlogRouter);
 app.use("/api/user", deleteBlogRouter);
+app.use("/api/user", getBlogRouter);
 
 app.listen(3000, () => {
   console.log("server is listening");
