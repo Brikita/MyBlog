@@ -6,6 +6,7 @@ import Blog from "./pages/Blog";
 import Signup from "./pages/signup";
 import Edit from "./pages/edit"
 import ViewBlog from "./pages/ViewBlog.jsx";
+import CreateBlog from './pages/createBlog'
 import BackendProfile from "./pages/backendProfile";
 import { Route, Routes } from "react-router-dom";
 
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/:id" element={<ViewBlog />} />
           <Route path="/:id/edit" element={<Edit />} />
           <Route path="/Social-Blogging-App-2.0/:id/edit" element={<Edit />} />
+          <Route path="/Social-Blogging-App-2.0/new" element={<CreateBlog />} />
         </Routes>
       </div>
     </section>
