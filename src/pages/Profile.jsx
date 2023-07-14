@@ -2,6 +2,7 @@ import React from "react"
 import Details from "../components/Details"
 import Header from "../components/Header"
 import Blog from "../components/NewBlog"
+import DisplayUser from "../components/DisplayUser"
 
 export default function Profile() {
 
@@ -50,17 +51,14 @@ export default function Profile() {
         const postedBlog = blog.content
         resultDiv.textContent = postedBlog
       }
-    // STATES
+    /* // STATES
     const [profile, setProfile] = React.useState(
         JSON.parse(localStorage.getItem("profile")) ||
         {profileName: "", description: ""}
     )  
     const [editing, setEditing] = React.useState(false);
 
-    // STORING TO LOCAL STORAGE
-    React.useEffect(function() {
-        localStorage.setItem("profile", JSON.stringify(profile))
-    }, [profile])
+    
     
     
     // FUNCTIONS TO HANDLE EVENTS
@@ -77,16 +75,28 @@ export default function Profile() {
             
     
     // CLICK FUNCTION
-    function editProfile() {
+    function editProfile(e) {
         setEditing(prevEditing => !prevEditing)
-    }
+
+        e.preventDefault();
+
+        // Sending the form data to the server 
+        axios.post('/api/submit', formData)
+        .then(response => {
+            console.log(response.data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    } */
         
         
 
         return (
             <div className="profile--page">
                 <Header />
-                <Details 
+                <DisplayUser />
+                {/* <Details 
                 nameInput = {
                     editing ? (
                         <h2 className="profile-name">{profile.profileName}</h2>
@@ -116,7 +126,7 @@ export default function Profile() {
                     )
                 }
                 handleClick={editProfile}
-                />
+                /> */}
                 <Blog 
                     /*createBlog={newBlog}*/
                     changeContent={changeContent}
