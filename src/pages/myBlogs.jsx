@@ -2,7 +2,7 @@ import React from "react";
 import http from "../lib/http";
 import { Link } from "react-router-dom";
 
-const backendProfile = () => {
+const MyBlogs = () => {
   const [blogs, setBlogs] = React.useState([]);
 
   React.useEffect(() => {
@@ -30,4 +30,4 @@ const backendProfile = () => {
   );
 };
 
-export default backendProfile;
+export default MyBlogs;

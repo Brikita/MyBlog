@@ -3,7 +3,7 @@ import http from "../lib/http";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams, Link } from "react-router-dom";
 
-const edit = () => {
+const Edit = () => {
   const { id: blogId } = useParams();
   //let blog
   const navigate = useNavigate();
@@ -76,4 +76,5 @@ const edit = () => {
   );
 };
 
-export default edit;
+export default Edit;
+ 
