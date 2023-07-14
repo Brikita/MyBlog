@@ -3,25 +3,39 @@ import Details from "../components/Details"
 import Header from "../components/Header"
 import MyBlogs from "./myBlogs"
 import './profile.css'
+import { useParams } from "react-router"
 import DisplayUser from "../components/DisplayUser"
 
-export default function Profile() {
 
-      /* const [blog, setBlog] = React.useState(
-        JSON.parse(localStorage.getItem("blog")) || 
-        { 
-            id: "",
-            content: "",
-            author: "",
-            coverImg: "",
-            time: "",
-            tags: []
-        }
-        ) */
+export default function Profile() {
+    const { id: userId } = useParams()
+    const [users, setUsers] = React.useState({});
+
+
+    React.useEffect(() => {
+      async function fetchUser() {
+        const { data } = await http.get(`/api/people/profile/${userId}`);
+        setUsers(data)
+      }
+      fetchUser(); 
+    }, []);
+  
+
+    /* const [blog, setBlog] = React.useState(
+      JSON.parse(localStorage.getItem("blog")) || 
+      { 
+          id: "",
+          content: "",
+          author: "",
+          coverImg: "",
+          time: "",
+          tags: []
+      }
+      ) */
     /* React.useEffect(() => {
         localStorage.setItem("blog", JSON.stringify(blog))
     }, [blog]) */
-    
+
     /*
     function newBlog() {
         return ({
@@ -33,37 +47,38 @@ export default function Profile() {
             tags: []
         })
     }*/
-   /*  function changeContent(event) {
-        const { value, name } = event.target
-        setBlog(prevBlog => {
-            return {...prevBlog,
-                   [name]: value
-                   }
-        })
-    } */
+    /*  function changeContent(event) {
+         const { value, name } = event.target
+         setBlog(prevBlog => {
+             return {...prevBlog,
+                    [name]: value
+                    }
+         })
+     } */
     /*function findBlog() {
         return blog.find(note => {
             return note
         }) 
     }*/
-   /*  function post() {
-        const resultDiv = document.getElementById("blog-post")
-  
-        const postedBlog = blog.content
-        resultDiv.textContent = postedBlog
-      } */
+    /*  function post() {
+         const resultDiv = document.getElementById("blog-post")
+   
+         const postedBlog = blog.content
+         resultDiv.textContent = postedBlog
+       } */
     // STATES
-    const [profile, setProfile] = React.useState(
+   /*  const [profile, setProfile] = React.useState(
         JSON.parse(localStorage.getItem("profile")) ||
-        {profileName: "", description: ""}
-    )  
+        { profileName: "", description: "" }
+    )
     const [editing, setEditing] = React.useState(false);
+ */
 
     
     
-    
+
     // FUNCTIONS TO HANDLE EVENTS
-    function handleChange(event) {              
+    /* function handleChange(event) {
         return (
             setProfile(prevProfile => {
                 return {
@@ -72,12 +87,13 @@ export default function Profile() {
                 }
             })
         )
-    }           
-            
-    
+    } */
+
+
     // CLICK FUNCTION
-    function editProfile(e) {
+    /* function editProfile(e) {
         setEditing(prevEditing => !prevEditing)
+
 
         e.preventDefault();
 
@@ -97,39 +113,12 @@ export default function Profile() {
             <div className="profile--page">
                 <Header />
                 <DisplayUser />
-                {/* <Details 
-                nameInput = {
-                    editing ? (
-                        <h2 className="profile-name">{profile.profileName}</h2>
-                    ) : (
-                        <input 
-                            className="profile--name"
-                            name="profileName" 
-                            type="text" 
-                            placeholder="Your Name" 
-                            value={profile.profileName} 
-                            onChange={handleChange}
-                        ></input>
-                    )
-                }
-                descriptionInput = {
-                    editing ? (
-                        <p className="profile--paragraph">{profile.description}</p>
-                    ) : (
-                        <input
-                            className="profile--description" 
-                            name="description"
-                            type="text" 
-                            placeholder="Write your bio" 
-                            value={profile.description} 
-                            onChange={handleChange}
-                        ></input>
-                    )
-                }
-                handleClick={editProfile}
-                />
-                <MyBlogs  />
                 
-            </div>
+               
+            <MyBlogs
+            userName={users.usernamme}
+            />
+
+        </div>
     )
-    }
+}

@@ -21,9 +21,9 @@ export default function App() {
           <Route path="/Social-Blogging-App-2.0/" element={<Blog />} />
           <Route path="/login" element={<Login />} />
           <Route path="/Social-Blogging-App-2.0/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/:id" element={<Profile />} />
           <Route
-            path="/Social-Blogging-App-2.0/profile"
+            path="/Social-Blogging-App-2.0/profile/:id"
             element={<Profile />}
           />
           {/* <Route
