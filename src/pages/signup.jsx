@@ -5,6 +5,7 @@ import "./login.css"
 export default function Login() {
     const [formData, setFormData] = React.useState(
         {
+            username: "",
             email: "",
             password: "",
             confirmPassword: "",
@@ -21,12 +22,7 @@ export default function Login() {
             }
         ))
     }
-    function handleSubmit(event) {
-        event.preventDefault()
-        formData.password === formData.confirmPassword ?
-        window.open("/Social-Blogging-App-2.0/", "_self"):
-        alert("passwords do not match")
-    }
+    
     return (
         <div>
             <section className='login--page'>
@@ -36,7 +32,18 @@ export default function Login() {
                 </article>
                 <div className='login--section'>
                     <h1>Sign up</h1>
-                    <form className="login--form" onSubmit={handleSubmit}>
+                    <form className="login--form" action='http://localhost:8080/signup' method='post'>
+                        <div className="login--email label">
+                                <label htmlFor="name">Username: </label>
+                                <input 
+                                    type="text" 
+                                    name="username" 
+                                    id="name" 
+                                    placeholder="John Doe"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                />
+                        </div>
                         <div className="login--email label">
                             <label htmlFor="email">Email: </label>
                             <input 
