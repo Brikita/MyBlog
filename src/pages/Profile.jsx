@@ -2,6 +2,7 @@ import React from "react"
 import Details from "../components/Details"
 import Header from "../components/Header"
 import MyBlogs from "./myBlogs"
+import './profile.css'
 
 export default function Profile() {
 

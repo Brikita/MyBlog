@@ -16,12 +16,14 @@ const MyBlogs = () => {
 
   //console.log(blog);
   return (
-    <div className='my-blogs-container' >
+    <div className='blogs' >
+      <h1>My Blogs</h1>
+      <Link className="blogs-link new" to={'/Social-Blogging-App-2.0/new'}>New Blog</Link >
       {blogs.map((blog) => {
         return (
         <div key={blog._id} className='blog-container'>
             <div className='blog-title'>
-                <Link to={`/${blog._id}`}>{blog.title}</Link>
+                <Link className="blogs-link title" to={`/${blog._id}`}>{blog.title}</Link>
             </div>
             <div className='blog-author' >{blog.author}    <span className='blog-date'>{blog.createdAt}</span></div>
         </div>)
