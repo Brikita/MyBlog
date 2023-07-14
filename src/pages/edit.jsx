@@ -2,6 +2,7 @@ import React from "react";
 import http from "../lib/http";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams, Link } from "react-router-dom";
+import './createBlog.css'
 
 const Edit = () => {
   const { id: blogId } = useParams();
@@ -29,7 +30,7 @@ const Edit = () => {
   };
 
   return (
-    <div>
+    <div className="edit-blog">
       <h1>Edit your Post</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="title">

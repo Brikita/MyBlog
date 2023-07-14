@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import http from "../lib/http";
+import './createBlog.css'
 
 export default function ViewBlog(){
   const { id: blogId } = useParams();
@@ -22,7 +23,7 @@ const deletePost = async () => {
 console.log(blog);
 console.log(blogId);
   return (
-  <div>
+  <div className="edit-blog">
     <h1 className="blog-title">{blog.title}</h1>
     {blog.tags?.map((tag) => <span key={Math.random()} className="blog-tags"> {tag} </span>)}
     <div className="blog-content">{blog.content}</div>

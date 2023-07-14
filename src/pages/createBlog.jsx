@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import http from "../lib/http";
+import './createBlog.css'
+
 
 const createBlog = () => {
   const navigate = useNavigate();
@@ -19,10 +21,10 @@ const createBlog = () => {
   };
 
   return (
-    <div>
+    <div className="new-blog">
       <h1>Create your Post</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="title">
+        <label htmlFor="title"> Title 
           <input
             placeholder="your Title"
             type="text"
@@ -31,7 +33,7 @@ const createBlog = () => {
             {...register("title")}
           />
         </label>
-        <label htmlFor="author">
+        <label htmlFor="author"> Name 
           <input
             placeholder="your Name"
             type="text"
@@ -40,7 +42,7 @@ const createBlog = () => {
             {...register("author")}
           />
         </label>
-        <label htmlFor="tags">
+        <label htmlFor="tags"> Tags 
           <input
             placeholder='Please input the tags separate them with a ","'
             type="text"
@@ -49,8 +51,8 @@ const createBlog = () => {
             {...register("tags")}
           />
         </label>
-        <label htmlFor="content">
-          <input
+        <label htmlFor="content"> 
+          <textarea
             placeholder="your Content..."
             type="text"
             name="content"
