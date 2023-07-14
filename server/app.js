@@ -2,21 +2,34 @@
 const express = require('express')
 const app = express()
 const { MongoClient } = require('mongodb')
+const { useNavigate } = require('react-router-dom')
 const mongoose = require('mongoose')
-const dotenv = require('dotenv')
-const newUser = require('./models/newUser')
+const cors = require('cors')
+//const dotenv = require('dotenv')
+const User = require('./models/newUser')
+
+
 const bodyParser = require('body-parser')
-const expressValidator = require('express-validator')
-dotenv.config()
+const { check, validationResult } = require('express-validator');
+const user = require('./routes/userInfo')
+const createBlogRouter = require('./routes/createBlog')
+const updateBlogRouter = require('./routes/updateBlog')
+const deleteBlogRouter = require('./routes/deleteBlog')
+const getBlogRouter = require('./routes/getBlogs')
+const getBlogIdRouter = require('./routes/getBlogId')
+   
+
 
 // MIDDLEWARE MOSTLY FOR GETTING THE FORM DATA FROM THE LOGIN AND SIGNUP PAGES
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
-app.use(expressValidator())
+app.use(cors())
+
+app.use('/api/people', user)
 app.use(bodyParser.json())
 
 // MONGOOSE... FOR CREATING A SCHEMA
-mongoose.connect(process.env.URL)
+mongoose.connect("mongodb+srv://titans:blog2.0@nodeapi.xr7lkoc.mongodb.net/authentication?retryWrites=true&w=majority")
 mongoose.connection.on("error", err => {
     console.log(err)
 })
@@ -24,7 +37,7 @@ mongoose.connection.on("error", err => {
 // CONNECT TO DATABASE
 let database; // global variable to store the MongoDB connection object
 function connectDB (callback) {    
-    MongoClient.connect(process.env.URL)
+    MongoClient.connect("mongodb+srv://titans:blog2.0@nodeapi.xr7lkoc.mongodb.net/authentication?retryWrites=true&w=majority")
     .then((connected)=>{
         database = connected.db()
         return callback()
@@ -38,9 +51,9 @@ function connectDB (callback) {
 // SERVER LISTEN
 connectDB((err)=> {
     if (!err) {
-        const port= process.env.PORT
-        app.listen(port, () => {
-            console.log(`Server is running on port ${port}`)
+        
+        app.listen(3000, () => {
+            console.log(`Server is running on port 3000`)
         })
     }
 })
@@ -65,8 +78,14 @@ app.post('/login', (req, res) => {
         })  
 })
 
+app.use("/api/user", createBlogRouter);
+app.use("/api/user", getBlogIdRouter);
+app.use("/api/user", updateBlogRouter);
+app.use("/api/user", deleteBlogRouter);
+app.use("/api/user", getBlogRouter);
+
 // VALIDATOR MIDDLEWARE
-const signUpValidator = (req, res, next) => {
+/* const signUpValidator = (req, res, next) => {
     req.check("username", "Add username").notEmpty()
     req.check("email","Enter a valid Email Address").isEmail()
     req.check("password", "Password must be at least 6 characters long").isLength({min: 6})
@@ -76,10 +95,23 @@ const signUpValidator = (req, res, next) => {
         return res.status(400).json({error: firstError});
     }
     next()
-}
+} */
 
+const signUpValidator = [
+    check('username').notEmpty().withMessage('Please provide a username'),
+    check('email').isEmail().withMessage('Please provide a valid email address'),
+    check('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters long'),
+    (req, res, next) => {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        const firstError = errors.array()[0].msg;
+        return res.status(400).json({ error: firstError });
+      }
+      next();
+    }
+  ];
 // 2. SIGN UP
-app.post('/signup', signUpValidator, (req, res)=> {
+/* app.post('/signup', signUpValidator, (req, res)=> {
     const username = req.body['username']
     const email = req.body['email']
     const password = req.body['password']
@@ -90,4 +122,15 @@ app.post('/signup', signUpValidator, (req, res)=> {
         newuser.save()
         .then(res.redirect('http://localhost:5173/'))
     }
-})
+}) */
+
+app.post('/signup', signUpValidator, (req, res) => {
+    const { username, email, password, confirmPassword } = req.body;
+     if (password !== confirmPassword) {
+      return res.status(400).json({ error: 'Passwords do not match' });
+    }
+     const newUser = new User({ username, email, password });
+    newUser.save()
+      .then(() => {res.redirect(`http://localhost:5173/profile/${newUser._id}`)})
+      .catch(error => res.status(500).json({ error: 'Failed to create a new user' }));
+  });

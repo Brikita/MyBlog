@@ -32,7 +32,7 @@ export default function Login() {
                 </article>
                 <div className='login--section'>
                     <h1>Sign up</h1>
-                    <form className="login--form" action='http://localhost:8080/signup' method='post'>
+                    <form className="login--form" action='http://localhost:3000/signup' method='post'>
                         <div className="login--email label">
                                 <label htmlFor="name">Username: </label>
                                 <input 

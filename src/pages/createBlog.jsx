@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import http from "../lib/http";
-import './createBlog.css'
+import './createBlog.css' 
 
 
 const createBlog = () => {
@@ -17,7 +17,7 @@ const createBlog = () => {
       content,
     };
     await http.post("/api/user/createBlog", { data: payload });
-    navigate("/Social-Blogging-App-2.0/profile");
+    
   };
 
   return (
@@ -63,7 +63,7 @@ const createBlog = () => {
         <button type="submit">Post</button>
       </form>
 
-      <Link to="/profile">&#8592; Back</Link>
+      {/* <Link to="/profile">&#8592; Back</Link> */}
     </div>
   );
 };
