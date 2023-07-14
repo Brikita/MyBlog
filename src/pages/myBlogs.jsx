@@ -2,15 +2,15 @@ import React from "react";
 import http from "../lib/http";
 import { Link } from "react-router-dom";
 
-const MyBlogs = () => {
+const MyBlogs = (props) => {
   const [blogs, setBlogs] = React.useState([]);
-
+  
   React.useEffect(() => {
     async function fetchBlogs() {
-      const { data } = await http.get("/api/user/blogs/Brian Kinyua");
+      const { data } = await http.get(`/api/user/blogs/${props.userName}`);
       setBlogs(data);
     }
-    fetchBlogs();
+    fetchBlogs(); 
   }, []);
   console.log(blogs);
 
