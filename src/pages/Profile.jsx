@@ -1,11 +1,12 @@
 import React from "react"
 import Details from "../components/Details"
 import Header from "../components/Header"
-import Blog from "../components/NewBlog"
+import MyBlogs from "./myBlogs"
+import './profile.css'
 
 export default function Profile() {
 
-      const [blog, setBlog] = React.useState(
+      /* const [blog, setBlog] = React.useState(
         JSON.parse(localStorage.getItem("blog")) || 
         { 
             id: "",
@@ -15,10 +16,10 @@ export default function Profile() {
             time: "",
             tags: []
         }
-        )
-    React.useEffect(() => {
+        ) */
+    /* React.useEffect(() => {
         localStorage.setItem("blog", JSON.stringify(blog))
-    }, [blog])
+    }, [blog]) */
     
     /*
     function newBlog() {
@@ -31,25 +32,25 @@ export default function Profile() {
             tags: []
         })
     }*/
-    function changeContent(event) {
+   /*  function changeContent(event) {
         const { value, name } = event.target
         setBlog(prevBlog => {
             return {...prevBlog,
                    [name]: value
                    }
         })
-    }
+    } */
     /*function findBlog() {
         return blog.find(note => {
             return note
         }) 
     }*/
-    function post() {
+   /*  function post() {
         const resultDiv = document.getElementById("blog-post")
   
         const postedBlog = blog.content
         resultDiv.textContent = postedBlog
-      }
+      } */
     // STATES
     const [profile, setProfile] = React.useState(
         JSON.parse(localStorage.getItem("profile")) ||
@@ -117,12 +118,8 @@ export default function Profile() {
                 }
                 handleClick={editProfile}
                 />
-                <Blog 
-                    /*createBlog={newBlog}*/
-                    changeContent={changeContent}
-                    currentBlog={blog.content}
-                    post={post}
-                />
+                <MyBlogs  />
+                
             </div>
     )
     }
