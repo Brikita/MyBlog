@@ -10,7 +10,9 @@ export default function Details(props) {
             </div>            
                 <h3 className="bio--title">Bio</h3>
                 {props.descriptionInput}
-            <button onClick={() => props.handleClick()} className="profile-edit-button">Edit Profile</button>
+            <button onClick={() => props.handleClick()} className="profile-edit-button" type="submit">Edit Profile</button>
         </div>
     )
 }
+
+ 
