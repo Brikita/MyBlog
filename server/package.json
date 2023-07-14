@@ -1,12 +1,12 @@
 {
-  "name": "blogapp",
+  "name": "auth",
   "version": "1.0.0",
-  "description": "My Blog App",
-  "main": "index.js",
+  "description": "Login and sign up pages",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon index.js"
   },
-  "author": "Coding Titans",
+  "author": "Willy Laisa",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
