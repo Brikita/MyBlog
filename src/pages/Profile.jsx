@@ -3,7 +3,9 @@ import Details from "../components/Details"
 import Header from "../components/Header"
 import MyBlogs from "./myBlogs"
 import './profile.css'
-import { useParams } from "react-router-dom";
+
+import DisplayUser from "../components/DisplayUser"
+
 
 export default function Profile() {
     const { id: userId } = useParams()
@@ -71,11 +73,9 @@ export default function Profile() {
     )
     const [editing, setEditing] = React.useState(false);
 
-    // STORING TO LOCAL STORAGE
-    React.useEffect(function () {
-        localStorage.setItem("profile", JSON.stringify(profile))
-    }, [profile])
 
+    
+    
 
     // FUNCTIONS TO HANDLE EVENTS
     function handleChange(event) {
@@ -91,17 +91,31 @@ export default function Profile() {
 
 
     // CLICK FUNCTION
-    function editProfile() {
+    function editProfile(e) {
         setEditing(prevEditing => !prevEditing)
-    }
 
 
+        e.preventDefault();
 
-    return (
-        <div className="profile--page">
-            <Header />
-            <Details
-                nameInput={
+        // Sending the form data to the server 
+        axios.post('/api/submit', formData)
+        .then(response => {
+            console.log(response.data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    } */
+        
+        
+
+        return (
+            <div className="profile--page">
+                <Header />
+                <DisplayUser />
+                {/* <Details 
+                nameInput = {
+
                     editing ? (
                         <h2 className="profile-name">{profile.profileName}</h2>
                     ) : (

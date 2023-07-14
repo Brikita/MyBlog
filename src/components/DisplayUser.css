@@ -1,0 +1,21 @@
+.profileEditButton {
+    background-color: rgb(102, 73, 73);
+    border-radius: 5px;
+    height: 30px;
+    margin: 10px;
+    width: 80px;
+}
+
+.profileEditButton:hover {
+    background-color: rgb(204, 150, 150);
+    border-radius: 5px;
+    height: 35px;
+    width: 85px;
+}
+
+
+
+.profileEditLink {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}

@@ -1,0 +1,47 @@
+.editProfileNameLabel {
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.editProfileDescriptionLabel {
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.editProfileDiv {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.editProfileBox {
+    background: rgb(254, 254, 255);
+    border-radius: 5px;
+    color: black;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-left: 5px;
+    margin-block: 5px;
+    width: 500px;
+}
+
+.editProfileBox:hover {
+    background: rgb(159, 159, 168);
+}
+
+.editProfileBtn {
+    border: 2px solid black;
+    border-radius: 4px;
+    height: 30px;
+    margin: auto;
+    width: 100px;
+}
+
+.editProfileBtn:hover {
+    border: 1px solid black;
+    border-radius: 4px;
+    box-shadow: inset 1px 1px;
+    height: 30px;
+    margin: auto;
+    width: 100px;
+}
