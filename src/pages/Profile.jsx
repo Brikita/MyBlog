@@ -3,7 +3,7 @@ import Details from "../components/Details"
 import Header from "../components/Header"
 import MyBlogs from "./myBlogs"
 import './profile.css'
-
+import { useParams } from "react-router"
 import DisplayUser from "../components/DisplayUser"
 
 
