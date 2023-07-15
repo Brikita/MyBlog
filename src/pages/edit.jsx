@@ -2,7 +2,7 @@ import React from "react";
 import http from "../lib/http";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import './createBlog.css'
+import './createBlog.css' 
 
 const Edit = () => {
   const { id: blogId } = useParams();

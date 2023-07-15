@@ -24,7 +24,7 @@ export default function Form() {
 
     return (
         <div>
-            <form className="login--form" action="http://localhost:8080/login" method="post">
+            <form className="login--form" action="http://localhost:3000/login" method="post">
                 <div className="login--email label">
                     <label htmlFor="email">Email: </label>
                     <input 

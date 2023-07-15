@@ -6,7 +6,7 @@ import './createBlog.css'
 export default function ViewBlog(){
   const { id: blogId } = useParams();
   const [blog, setBlog] = React.useState({});
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   React.useEffect(() => {
     async function fetchBlog() {

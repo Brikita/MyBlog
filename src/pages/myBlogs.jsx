@@ -7,7 +7,7 @@ const MyBlogs = (props) => {
   
   React.useEffect(() => {
     async function fetchBlogs() {
-      const { data } = await http.get(`/api/user/blogs/${props.userName}`);
+      const { data } = await http.get(`/api/user/blogs/Brian Kinyua`);
       setBlogs(data);
     }
     fetchBlogs(); 
