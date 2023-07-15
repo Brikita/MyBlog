@@ -22,7 +22,7 @@ const Edit = () => {
     const payload = {
       title,
       author,
-      tags: tags.split(",", 4).map((tag) => tag.trim()),
+      tags,
       content,
     };
     await http.put(`/api/user/updateBlog/${blogId}`, { data: payload });
