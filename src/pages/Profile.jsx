@@ -8,17 +8,7 @@ import DisplayUser from "../components/DisplayUser"
 
 
 export default function Profile() {
-    const { id: userId } = useParams()
-    const [users, setUsers] = React.useState({});
-
-
-    React.useEffect(() => {
-      async function fetchUser() {
-        const { data } = await http.get(`/api/people/profile/${userId}`);
-        setUsers(data)
-      }
-      fetchUser(); 
-    }, []);
+    
   
 
     /* const [blog, setBlog] = React.useState(
@@ -115,9 +105,7 @@ export default function Profile() {
                 <DisplayUser />
                 
                
-            <MyBlogs
-            userName={users.usernamme}
-            />
+            <MyBlogs />
 
         </div>
     )

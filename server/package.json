@@ -4,7 +4,7 @@
   "description": "Login and sign up pages",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon index.js"
   },
   "author": "Willy Laisa",
   "license": "ISC",

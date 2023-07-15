@@ -19,7 +19,7 @@ function DisplayUser() {
     }, [])
   return (
     <div>
-        <h2 className='profileUserName'>{user.userName}</h2>
+        <h2 className='profileUserName'>{user.username}</h2>
         <p className='profileDescription'>{user.description}</p> 
         <button className='profileEditButton'><Link to={`/editProfile/${userId}`} className='profileEditLink'>Edit Profile</Link></button>
     </div>
