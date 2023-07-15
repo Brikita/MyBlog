@@ -1,48 +1,37 @@
-const express = require('express')
-const app = express()
-const bodyParser = require('body-parser')
-const cors = require('cors')
-
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const mongoose = require("mongoose");
-
-const createBlogRouter = require('./routes/createBlog')
-const updateBlogRouter = require('./routes/updateBlog')
-const deleteBlogRouter = require('./routes/deleteBlog')
-const getBlogRouter = require('./routes/getBlogs')
-const getBlogIdRouter = require('./routes/getBlogId')
-// connect to database
-
+ const createBlogRouter = require('./routes/createBlog');
+const updateBlogRouter = require('./routes/updateBlog');
+const deleteBlogRouter = require('./routes/deleteBlog');
+const getBlogRouter = require('./routes/getBlogs');
+const getBlogIdRouter = require('./routes/getBlogId');
+ // Connect to the database
 mongoose
   .connect(
-    "mongodb+srv://brikita:brian12@test.nlyxchf.mongodb.net/?retryWrites=true&w=majority",
+    "mongodb+srv://brikita:brayoh@test.nlyxchf.mongodb.net/?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-    }, 600000
+    }
   )
   .then(() => console.log("DB connected"))
   .catch((error) => console.error("DB connection error:", error));
-
-mongoose.connection.on("error", (err) => {
+ mongoose.connection.on("error", (err) => {
   console.log(`DB connection error ${err.message}`);
 });
-
-
-//middleware
-app.use(bodyParser.json())
-app.use(cors())
-
-
-
-// create my test endpoint
+ // Middleware
+app.use(bodyParser.json());
+app.use(cors());
+ // Create endpoints
 app.use("/api/user", createBlogRouter);
 app.use("/api/user", getBlogIdRouter);
 app.use("/api/user", updateBlogRouter);
 app.use("/api/user", deleteBlogRouter);
 app.use("/api/user", getBlogRouter);
-
-
+ // Start the server
 app.listen(3000, () => {
-  console.log("server is listening");
+  console.log("Server is listening on port 3000");
 });
-

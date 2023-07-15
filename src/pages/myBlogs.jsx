@@ -1,19 +1,30 @@
 import React from "react";
 import http from "../lib/http";
-import { Link } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 
-const MyBlogs = (props) => {
+const MyBlogs = () => {
   const [blogs, setBlogs] = React.useState([]);
+  const { id: userId } = useParams()
+  const [users, setUsers] = React.useState({});
+
+
+    React.useEffect(() => {
+      async function fetchUser() {
+        const { data } = await http.get(`/api/people/profile/${userId}`);
+        setUsers(data)
+      }
+      fetchUser(); 
+    }, []);
   
   React.useEffect(() => {
     async function fetchBlogs() {
-      const { data } = await http.get(`/api/user/blogs/Brian Kinyua`);
+      const { data } = await http.get(`/api/user/blogs/${users.username}`);
       setBlogs(data);
     }
     fetchBlogs(); 
-  }, []);
-  console.log(blogs);
-
+  }, [users]);
+  console.log(users.username);
+  
   //console.log(blog);
   return (
     <div className='blogs' >

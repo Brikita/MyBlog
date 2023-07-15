@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Profile = require("../models/posts");
+const Profile = require("../models/newUser");
 
 //FETCHING THE USERNAME
 
