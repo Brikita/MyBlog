@@ -32,4 +32,4 @@ const BlogPost = ({title, content, image }) => {
   );
 };
 
-export default BlogPost;
+export default BlogPost; 

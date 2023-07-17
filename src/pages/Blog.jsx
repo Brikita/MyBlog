@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react' 
 import "./blog.css"
 import BlogPost from './BlogPost';
 import  { useState, useEffect } from 'react';
@@ -16,7 +16,7 @@ export default function Blog() {
     
       const fetchBlogPosts = async () => {
         try {
-          const response = await axios.get('http://localhost:3024/blog/posts');
+          const response = await axios.get('http://localhost:3000/blog/posts');
           setBlogPosts(response.data);
         } catch (error) {
           console.log('Error fetching blog posts:', error);
