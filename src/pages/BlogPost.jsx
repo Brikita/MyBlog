@@ -24,7 +24,7 @@ const BlogPost = ({title, content, image }) => {
     
       <div className="blog-post">
       <h2>{title}</h2>
-      <img src={image} alt="Blog Post" />
+      {image && <img src={image} alt="Blog Post" />}
       <p>{content}</p>
       
 
