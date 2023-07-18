@@ -87,7 +87,6 @@ app.get("/blog/posts", (req, res) => {
   Blogs.find({})
     .then((BlogPosts) => {
       res.status(200).json(BlogPosts);
-      console.log(BlogPosts);
     })
     .catch((error) => {
       res.send(error);

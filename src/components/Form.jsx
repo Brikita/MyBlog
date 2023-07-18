@@ -49,7 +49,6 @@ export default function Form() {
                 </div>
                 <button>Log in</button>
             </form>
-            <br />
             <p className="signup">New to My Blog?
                 <Link to="/signup" className="signup--link"> Sign up</Link>
             </p>
