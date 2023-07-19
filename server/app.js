@@ -77,7 +77,7 @@ app.post("/login", (req, res) => {
           secretInfo[i].email === email &&
           secretInfo[i].password === password
         ) {
-          return res.redirect("http://localhost:5173/");
+          return res.redirect(`http://localhost:5173/${secretInfo[i]._id}`);
         }
       }
       res.send("<h1>Error: Invalid Credentials</h1>");
@@ -88,7 +88,6 @@ app.get("/blog/posts", (req, res) => {
   Blogs.find({})
     .then((BlogPosts) => {
       res.status(200).json(BlogPosts);
-      console.log(BlogPosts);
     })
     .catch((error) => {
       res.send(error);

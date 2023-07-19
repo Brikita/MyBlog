@@ -19,33 +19,24 @@ export default function App() {
       <div>
         <Routes>
           <Route path="/" element={<Blog />} />
-          <Route path="/Social-Blogging-App-2.0/" element={<Blog />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/Social-Blogging-App-2.0/login" element={<Login />} />
           <Route path="/profile/:id" element={<Profile />} />
-          <Route
-            path="/Social-Blogging-App-2.0/profile/:id"
-            element={<Profile />}
-          />
-          {/* <Route
-            path="/Social-Blogging-App-2.0/editProfile/:id"
-            element={<EditProfile />}
-          /> */}
           <Route
             path="/editProfile/:id"
             element={<EditProfile />}
           />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/Social-Blogging-App-2.0/signup" element={<Signup />} />
           <Route path="/profile/myblogs" element={<MyBlogs />} />
-          <Route path="/Social-Blogging-App-2.0/profile/myblogs" element={<MyBlogs />} />
-          <Route path="/Social-Blogging-App-2.0/:id" element={<ViewBlog />} />
           <Route path="/:id" element={<ViewBlog />} />
           <Route path="/:id/edit" element={<Edit />} />
+<<<<<<< HEAD
           <Route path="/Social-Blogging-App-2.0/profile/:id/edit" element={<Edit />} />
           <Route path="/Social-Blogging-App-2.0/new" element={<CreateBlog />} />
           <Route path="/Social-Blogging-App-2.0/:id/comment" element={<ShowPost />} />
 
+=======
+          <Route path="/new" element={<CreateBlog />} />
+>>>>>>> 74531844ad03393214ec869ec4d2621c1d99ee11
         </Routes>
       </div>
     </section>

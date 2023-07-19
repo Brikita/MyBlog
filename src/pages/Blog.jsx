@@ -8,21 +8,19 @@ import axios from 'axios';
 
 
 export default function Blog() {
-    const [blogPosts, setBlogPosts] =useState( [
-      ]);
+  const [blogPosts, setBlogPosts] =useState([]);
+    useEffect(() => {
+      fetchBlogPosts();
+    }, []);
 
-      useEffect(() => {
-        fetchBlogPosts();
-      }, []);
-    
-      const fetchBlogPosts = async () => {
-        try {
-          const response = await axios.get('http://localhost:3000/blog/posts');
-          setBlogPosts(response.data);
-        } catch (error) {
-          console.log('Error fetching blog posts:', error);
-        }
-      };
+    const fetchBlogPosts = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/blog/posts');
+        setBlogPosts(response.data);
+      } catch (error) {
+        console.log('Error fetching blog posts:', error);
+      }
+    };
     
 
       const [search, setSearch]= React.useState('')
@@ -72,6 +70,7 @@ export default function Blog() {
            </div>
 
         <h1>Welcome to My Blogging Website</h1>
+        <br />
         <div className="blog-posts">
         {searchResults.map((post) => (
         <BlogPost key={post.id} title={post.title} content={post.content} image={post.image} id={post.id} />

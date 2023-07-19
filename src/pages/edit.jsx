@@ -35,7 +35,7 @@ const Edit = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="title">
           <input
-            placeholder="your Title"
+            placeholder="Your Title"
             type="text"
             name="title"
             id="title"
@@ -44,7 +44,7 @@ const Edit = () => {
         </label>
         <label htmlFor="author">
           <input
-            placeholder="your Name"
+            placeholder="Your Name"
             type="text"
             name="author"
             id="author"
@@ -62,7 +62,7 @@ const Edit = () => {
         </label>
         <label htmlFor="content">
           <input
-            placeholder="your Content..."
+            placeholder="Your content..."
             type="text"
             name="content"
             id="content"
