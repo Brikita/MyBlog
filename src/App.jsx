@@ -47,7 +47,6 @@ export default function App() {
           <Route path="/:id/edit" element={<Edit />} />
 
           <Route path="/Social-Blogging-App-2.0/profile/:id/edit" element={<Edit />} />
-          <Route path="/Social-Blogging-App-2.0/new" element={<CreateBlog />} />
           <Route path="/Social-Blogging-App-2.0/:id/comment" element={<ShowPost />} />
 
 
