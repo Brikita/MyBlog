@@ -5,9 +5,10 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import './createBlog.css' 
 
 const Edit = () => {
-  const { id: blogId } = useParams();
+  const { blogId: blogId } = useParams();
+  const { id: userId } = useParams()
   //let blog
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
   const { register, handleSubmit, reset } = useForm();
   React.useEffect(() => {
     async function fetchBlog() {
@@ -26,7 +27,7 @@ const Edit = () => {
       content,
     };
     await http.put(`/api/user/updateBlog/${blogId}`, { data: payload });
-    navigate(`/${blogId}`);
+    navigate(`/profile/${userId}/${blogId}`);
   };
 
   return (
@@ -72,7 +73,7 @@ const Edit = () => {
         <button type="submit">Save</button>
       </form>
 
-      <Link to="/profile">&#8592; Back</Link>
+      <Link to={`/profile/${userId}`}>&#8592; Back</Link>
     </div>
   );
 };

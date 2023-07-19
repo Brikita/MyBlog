@@ -10,8 +10,8 @@ const Blog = require("../models/blogs");
 app.use(bodyParser.json());
 
 // delete function
-router.delete("/deleteBlog/:id", async (req, res, next) => {
-  const blogId = req.params.id;
+router.delete("/deleteBlog/:blogId", async (req, res, next) => {
+  const blogId = req.params.blogId
 
   try {
     const deletedBlog = await Blog.findByIdAndDelete(blogId);

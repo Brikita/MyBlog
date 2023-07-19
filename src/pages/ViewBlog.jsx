@@ -4,7 +4,9 @@ import http from "../lib/http";
 import './createBlog.css'
 
 export default function ViewBlog(){
-  const { id: blogId } = useParams();
+  const { blogId: blogId } = useParams();
+  const { id: userId } = useParams()
+
   const [blog, setBlog] = React.useState({});
   const navigate = useNavigate(); 
 
@@ -17,7 +19,7 @@ export default function ViewBlog(){
 
 const deletePost = async () => {
   await http.delete(`/api/user/deleteBlog/${blogId}`)
-  navigate('/profile')
+  navigate(`/profile/${userId}`)
 }
 
 console.log(blog);
@@ -29,10 +31,10 @@ console.log(blogId);
     <div className="blog-content">{blog.content}</div>
     <div>{blog.author} <span>{blog.createdAt}</span></div>
     <div className="btn-container">
-      <Link className="btn" to={`/${blogId}/edit`}>Edit</Link>
+      <Link className="btn" to={`/profile/${userId}/${blogId}/edit`}>Edit</Link>
       <button onClick={deletePost}>Delete</button>
     </div>
-    <Link to="/profile">&#8592;  Back</Link>
+    <Link to={`/profile/${userId}`} >&#8592;  Back</Link>
   </div>
   );
 }
