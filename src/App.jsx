@@ -10,6 +10,7 @@ import ViewBlog from "./pages/ViewBlog";
 import CreateBlog from './pages/createBlog'
 import MyBlogs from "./pages/myBlogs";
 import { Route, Routes } from "react-router-dom";
+import ShowPost from "./pages/showPost"
 
 export default function App() {
   return (
@@ -43,6 +44,8 @@ export default function App() {
           <Route path="/:id/edit" element={<Edit />} />
           <Route path="/Social-Blogging-App-2.0/profile/:id/edit" element={<Edit />} />
           <Route path="/Social-Blogging-App-2.0/new" element={<CreateBlog />} />
+          <Route path="/Social-Blogging-App-2.0/:id/comment" element={<ShowPost />} />
+
         </Routes>
       </div>
     </section>

@@ -11,11 +11,12 @@ const Blogs = require("./models/blogs");
 
 const bodyParser = require("body-parser");
 const { check, validationResult } = require("express-validator");
+const commentRouter = require('./routes/comment')
 const user = require("./routes/userInfo");
-const createBlogRouter = require("./routes/createBlog");
 const updateBlogRouter = require("./routes/updateBlog");
 const deleteBlogRouter = require("./routes/deleteBlog");
 const getBlogRouter = require("./routes/getBlogs");
+const createBlogRouter = require("./routes/createBlog");
 const getBlogIdRouter = require("./routes/getBlogId");
 
 // MIDDLEWARE MOSTLY FOR GETTING THE FORM DATA FROM THE LOGIN AND SIGNUP PAGES
@@ -99,6 +100,7 @@ app.use("/api/user", getBlogIdRouter);
 app.use("/api/user", updateBlogRouter);
 app.use("/api/user", deleteBlogRouter);
 app.use("/api/user", getBlogRouter);
+app.use("/api/user", commentRouter)
 
 // VALIDATOR MIDDLEWARE
 /* const signUpValidator = (req, res, next) => {

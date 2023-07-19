@@ -2,6 +2,7 @@ import React from 'react'
 import "./blog.css"
 import BlogPost from './BlogPost';
 import  { useState, useEffect } from 'react';
+//import { useForm } from "react-hook-form"
 import axios from 'axios';
 
 
@@ -46,16 +47,9 @@ export default function Blog() {
           );
         };
       
-        const handleAddComment = (postId, comment) => {
-          setBlogPosts((prevPosts) =>
-            prevPosts.map((post) => {
-              if (post.id === postId) {
-                return { ...post, comments: [...post.comments, comment] };
-              }
-              return post;
-            })
-          );
-        };
+      
+        
+          
       
     return (
         <div className='Blog--Container'>
@@ -80,9 +74,10 @@ export default function Blog() {
         <h1>Welcome to My Blogging Website</h1>
         <div className="blog-posts">
         {searchResults.map((post) => (
-        <BlogPost key={post.id} title={post.title} content={post.content} image={post.image}  />
+        <BlogPost key={post.id} title={post.title} content={post.content} image={post.image} id={post.id} />
       ))}
-        </div>
+            
+</div>
        
       </div>
     )
