@@ -10,33 +10,49 @@ import ViewBlog from "./pages/ViewBlog";
 import CreateBlog from './pages/createBlog'
 import MyBlogs from "./pages/myBlogs";
 import { Route, Routes } from "react-router-dom";
+import "../style.css"
+
 import ShowPost from "./pages/showPost"
 
 export default function App() {
   return (
     <section>
-      <Navbar className="navbar" /> 
+      <Navbar className="navbar" />
       <div>
         <Routes>
           <Route path="/" element={<Blog />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profile/:id" element={<Profile />} />
+
+          <Route path="/Social-Blogging-App-2.0/login" element={<Login />} />
+          <Route path="/profile/:id" element={<Profile />} >
+            <Route path="blogs">
+            <Route index element={<MyBlogs />} />
+            </Route>
+          </Route>
+          <Route path="/profile/:id/new" element={<CreateBlog />}></Route>
+          <Route path="/profile/:id/:blogId/edit" element={<Edit />} />
+          <Route path="/profile/:id/:blogId" element={<ViewBlog />} />
+
           <Route
             path="/editProfile/:id"
             element={<EditProfile />}
           />
           <Route path="/signup" element={<Signup />} />
+
+          <Route path="/Social-Blogging-App-2.0/signup" element={<Signup />} />
+
+
           <Route path="/profile/myblogs" element={<MyBlogs />} />
           <Route path="/:id" element={<ViewBlog />} />
           <Route path="/:id/edit" element={<Edit />} />
-<<<<<<< HEAD
+
           <Route path="/Social-Blogging-App-2.0/profile/:id/edit" element={<Edit />} />
           <Route path="/Social-Blogging-App-2.0/new" element={<CreateBlog />} />
           <Route path="/Social-Blogging-App-2.0/:id/comment" element={<ShowPost />} />
 
-=======
+
           <Route path="/new" element={<CreateBlog />} />
->>>>>>> 74531844ad03393214ec869ec4d2621c1d99ee11
+
         </Routes>
       </div>
     </section>

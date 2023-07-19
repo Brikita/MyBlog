@@ -29,12 +29,12 @@ const MyBlogs = () => {
   return (
     <div className='blogs' >
       <h1>My Blogs</h1>
-      <Link className="blogs-link new" to={'/Social-Blogging-App-2.0/new'}>New Blog</Link >
+      <Link className="blogs-link new" to={`/profile/${userId}/new`}>New Blog</Link >
       {blogs.map((blog) => {
         return (
         <div key={blog._id} className='blog-container'>
             <div className='blog-title'>
-                <Link className="blogs-link title" to={`/${blog._id}`}>{blog.title}</Link>
+                <Link className="blogs-link title" to={`/profile/${userId}/${blog._id}`}><h1>{blog.title}</h1></Link>
             </div>
             <div className='blog-author' >{blog.author}    <span className='blog-date'>{blog.createdAt}</span></div>
         </div>)

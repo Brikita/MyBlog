@@ -1,13 +1,15 @@
 import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import http from "../lib/http";
 import './createBlog.css' 
 
 
-const createBlog = () => {
+
+const createBlog = () => { 
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
+  const { id: userId } = useParams()
 
   const onSubmit = async ({ title, author, tags, content }) => {
     const payload = {
@@ -17,7 +19,7 @@ const createBlog = () => {
       content,
     };
     await http.post("/api/user/createBlog", { data: payload });
-    
+    navigate(`/profile/${userId}`)
   };
 
   return (
