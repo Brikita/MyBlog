@@ -101,14 +101,17 @@ export default function Profile() {
 
 
     return (
-        <div className="profile--page">
-            
-            <Header />
-            <DisplayUser />
+        <section>
+            <Navbar userId={userId} className="navbar" />
+            <div className="profile--page">
+
+                <Header />
+                <DisplayUser />
 
 
-            <MyBlogs />
+                <MyBlogs />
 
-        </div>
+            </div>
+        </section>
     )
 }

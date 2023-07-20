@@ -9,18 +9,19 @@ import Edit from "./pages/edit"
 import ViewBlog from "./pages/ViewBlog";
 import CreateBlog from './pages/createBlog'
 import MyBlogs from "./pages/myBlogs";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useParams } from "react-router-dom";
 import "../style.css"
 
 import ShowPost from "./pages/showPost"
 
 export default function App() {
+  
   return (
     <section>
-      <Navbar className="navbar" />
+      
       <div>
         <Routes>
-          <Route path="/" element={<Blog />} />
+          <Route path="/:id" element={<Blog />} />
           <Route path="/login" element={<Login />} />
 
           <Route path="/Social-Blogging-App-2.0/login" element={<Login />} />
