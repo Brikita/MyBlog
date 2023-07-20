@@ -78,7 +78,7 @@ export default function Blog() {
         <br />
         <div className="blog-posts">
           {searchResults.map((post) => (
-            <BlogPost key={post.id} title={post.title} content={post.content} image={post.image} id={post._id} />
+            <BlogPost key={post.id} title={post.title} content={post.content} image={post.image} blogId={post._id} />
           ))}
 
         </div>

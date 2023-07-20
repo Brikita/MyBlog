@@ -3,7 +3,7 @@ import "./blog.css"
 import { Link } from 'react-router-dom';
 
 
-const BlogPost = ({title, content, image ,id}) => {
+const BlogPost = ({title, content, image ,blogId}) => {
   const [comment, setComment] = useState('');
 
   const handleLikeClick = () => {
@@ -25,7 +25,7 @@ const BlogPost = ({title, content, image ,id}) => {
   return (
     
       <div className="blog-post">
-      <Link to={`/blog/${id}/comments`}>{title} </Link>
+      <Link to={`/:id/${blogId}/comments`}>{title} </Link>
       <img src={image} alt="Blog Post" />
       <p>{content}</p>
       

@@ -45,7 +45,7 @@ export default function App() {
           
 
           
-          <Route path="/Social-Blogging-App-2.0/:id/comment" element={<ShowPost />} />
+          <Route path="/:id/:blogId/comments" element={<ShowPost />} />
 
 
           
