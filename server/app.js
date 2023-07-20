@@ -29,7 +29,7 @@ app.use('/api/people', user)
 app.use(bodyParser.json())
 
 // MONGOOSE... FOR CREATING A SCHEMA
-mongoose.connect("mongodb+srv://brikita:brayoh@test.nlyxchf.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://gachohinderitu005:gXY4EMPQPi0yhDRzO@blogappdb.ouxksjd.mongodb.net/?retryWrites=true&w=majority")
 mongoose.connection.on("error", err => {
     console.log(err)
 })
@@ -37,7 +37,7 @@ mongoose.connection.on("error", err => {
 // CONNECT TO DATABASE
 let database; // global variable to store the MongoDB connection object
 function connectDB (callback) {    
-    MongoClient.connect("mongodb+srv://brikita:brayoh@test.nlyxchf.mongodb.net/?retryWrites=true&w=majority")
+    MongoClient.connect("mongodb+srv://gachohinderitu005:gXY4EMPQPi0yhDRzO@blogappdb.ouxksjd.mongodb.net/?retryWrites=true&w=majority")
     .then((connected)=>{
         database = connected.db()
         return callback()

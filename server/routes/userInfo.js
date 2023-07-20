@@ -19,12 +19,12 @@ router.get("/profile/:id", async (req, res) => {
   }
 });
 router.put("/editProfile/:id", async (req, res) => {
-  const { userName, description } = req.body;
+  const { username, description } = req.body;
   const userId = req.params.id;
   try {
     const updatedUser = await Profile.findByIdAndUpdate(
       userId,
-      { userName, description },
+      { username, description },
       { new: true }
     );
     res.status(200).json({ message: "updated the user", data: updatedUser });

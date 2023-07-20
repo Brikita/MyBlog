@@ -16,9 +16,9 @@ const EditProfile = () => {
         }
         fetchUser()
     }, [])
-    const onSubmit = async ({ userName, description }) => {
+    const onSubmit = async ({ username, description }) => {
     const payload = {
-        userName,
+        username,
         description
     }
 
@@ -31,12 +31,12 @@ const EditProfile = () => {
   return (
     <div >
         <form onSubmit={handleSubmit(onSubmit)} className='editProfileDiv'>
-            <label htmlFor="userName" className='editProfileNameLabel'>Name:</label>
+            <label htmlFor="username" className='editProfileNameLabel'>Name:</label>
             <input 
             type="text" 
-            name='userName' 
-            id='userName'
-            {...register('userName')}
+            name='username' 
+            id='username'
+            {...register('username')}
             className='editProfileBox'/>
             <label htmlFor="description" className='editProfileDescriptionLabel'>Description:</label>
             <textarea 

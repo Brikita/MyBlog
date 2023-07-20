@@ -17,7 +17,7 @@ export default function ViewBlog(){
 
 const deletePost = async () => {
   await http.delete(`/api/user/deleteBlog/${blogId}`)
-  navigate('/profile')
+  //navigate('/profile')
 }
 
 console.log(blog);
