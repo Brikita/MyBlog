@@ -12,9 +12,9 @@ app.use(bodyParser.json());
 
 // updating endpoint
 
-router.put("/updateBlog/:id", async (req, res, next) => {
+router.put("/updateBlog/:blogId", async (req, res, next) => {
   const { title, content, tags } = req.body;
-  const blogId = req.params.id;
+  const blogId = req.params.blogId;
 
   try {
     const updatedBlog = await Blog.findByIdAndUpdate(

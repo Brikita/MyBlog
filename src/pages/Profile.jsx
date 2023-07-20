@@ -5,11 +5,12 @@ import MyBlogs from "./myBlogs"
 import './profile.css'
 import { useParams } from "react-router"
 import DisplayUser from "../components/DisplayUser"
+import Navbar from "../Navbar"
 
 
 export default function Profile() {
-    
-  
+    const { id: userId } = useParams()
+
 
     /* const [blog, setBlog] = React.useState(
       JSON.parse(localStorage.getItem("blog")) || 
@@ -57,15 +58,15 @@ export default function Profile() {
          resultDiv.textContent = postedBlog
        } */
     // STATES
-   /*  const [profile, setProfile] = React.useState(
-        JSON.parse(localStorage.getItem("profile")) ||
-        { profileName: "", description: "" }
-    )
-    const [editing, setEditing] = React.useState(false);
- */
+    /*  const [profile, setProfile] = React.useState(
+         JSON.parse(localStorage.getItem("profile")) ||
+         { profileName: "", description: "" }
+     )
+     const [editing, setEditing] = React.useState(false);
+  */
 
-    
-    
+
+
 
     // FUNCTIONS TO HANDLE EVENTS
     /* function handleChange(event) {
@@ -96,17 +97,21 @@ export default function Profile() {
             console.error('Error:', error);
         });
     } */
-        
-        
 
-        return (
+
+
+    return (
+        <section>
+            <Navbar userId={userId} className="navbar" />
             <div className="profile--page">
+
                 <Header />
                 <DisplayUser />
-                
-               
-            <MyBlogs />
 
-        </div>
+
+                <MyBlogs />
+
+            </div>
+        </section>
     )
 }

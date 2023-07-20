@@ -29,6 +29,10 @@ button {
     margin-bottom: 40px;
     margin-top: 0.5rem;
 }
+.edit-blog {
+    margin: 0 auto;
+    text-align: center;
+}
 
 .edit-blog h1 {
     color: #333;
@@ -39,7 +43,7 @@ button {
 
 .edit-blog .blog-content {
     padding: 1rem;
-    
+    font-size: 1.3rem;
     color: #333;
     
 }
@@ -64,4 +68,8 @@ button {
     border-radius: 5px;
     box-shadow: 4px 4px 4px;
     cursor: pointer;
+}
+
+.blog-container {
+    text-align: center;
 }

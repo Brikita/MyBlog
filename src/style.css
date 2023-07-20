@@ -9,13 +9,13 @@ html {
     background-color: #e8f5fc;
 }
 
-
 nav {
     background-color: #55C2C3;
     display: flex;
     flex-direction: row;
     padding: 0.5rem 1rem;
     margin-bottom: 1.5rem;
+    width: 100vw;
 }
 
 nav ul{

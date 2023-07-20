@@ -1,12 +1,12 @@
 {
   "name": "auth",
   "version": "1.0.0",
-  "description": "Login and sign up pages",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js"
   },
-  "author": "Willy Laisa",
+  "author": "Coding Titans",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",

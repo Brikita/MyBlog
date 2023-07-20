@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import "./blog.css"
+import { Link } from 'react-router-dom';
 
-const BlogPost = ({title, content, image }) => {
+
+const BlogPost = ({title, content, image ,id}) => {
   const [comment, setComment] = useState('');
 
   const handleLikeClick = () => {
@@ -23,7 +25,7 @@ const BlogPost = ({title, content, image }) => {
   return (
     
       <div className="blog-post">
-      <h2>{title}</h2>
+      <Link to={`/blog/${id}/comments`}>{title} </Link>
       <img src={image} alt="Blog Post" />
       <p>{content}</p>
       
@@ -32,4 +34,4 @@ const BlogPost = ({title, content, image }) => {
   );
 };
 
-export default BlogPost;
+export default BlogPost; 
