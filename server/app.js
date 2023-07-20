@@ -77,7 +77,7 @@ app.post("/login", (req, res) => {
           secretInfo[i].email === email &&
           secretInfo[i].password === password
         ) {
-          return res.redirect(`http://localhost:5173/profile/${secretInfo[i]._id}`);
+          return res.redirect(`http://localhost:5173/${secretInfo[i]._id}`);
         }
       }
       res.send("<h1>Error: Invalid Credentials</h1>");
