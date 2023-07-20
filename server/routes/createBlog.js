@@ -12,13 +12,14 @@ const Blog = require("../models/blogs");
 app.use(bodyParser.json());
 
 router.post("/createBlog", async (req, res, next) => {
-  const { title, author, content, tags } = req.body;
+  const { title, author, content, tags, image } = req.body;
 
   const BlogPost = new Blog({
     title,
     author,
     content,
     tags,
+    image
   });
 
   const savedBlog = await BlogPost.save();

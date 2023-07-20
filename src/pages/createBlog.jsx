@@ -11,12 +11,13 @@ const createBlog = () => {
   const { register, handleSubmit } = useForm();
   const { id: userId } = useParams()
 
-  const onSubmit = async ({ title, author, tags, content }) => {
+  const onSubmit = async ({ title, author, tags, content, image }) => {
     const payload = {
       title,
       author,
       tags,
       content,
+      image
     };
     await http.post("/api/user/createBlog", { data: payload });
     navigate(`/profile/${userId}`)
@@ -28,7 +29,7 @@ const createBlog = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="title"> Title 
           <input
-            placeholder="your title"
+            placeholder="your Title"
             type="text"
             name="title"
             id="title"
@@ -37,7 +38,7 @@ const createBlog = () => {
         </label>
         <label htmlFor="author"> Name 
           <input
-            placeholder="your name"
+            placeholder="your Name"
             type="text"
             name="author"
             id="author"
@@ -51,6 +52,15 @@ const createBlog = () => {
             name="tags"
             id="tags"
             {...register("tags")}
+          />
+        </label>
+        <label htmlFor="image"> Image address 
+          <input
+            placeholder='Input the image address to your image'
+            type="text"
+            name="image"
+            id="image"
+            {...register("image")}
           />
         </label>
         <label htmlFor="content"> 

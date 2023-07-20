@@ -26,7 +26,7 @@ const BlogPost = ({title, content, image ,blogId}) => {
     
       <div className="blog-post">
       <Link to={`/:id/${blogId}/comments`}>{title} </Link>
-      <img src={image} alt="Blog Post" />
+      {image && <img src={image} alt="Blog Post" />}
       <p>{content}</p>
       
 

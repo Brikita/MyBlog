@@ -24,8 +24,6 @@ export default function App() {
           <Route path="/:id" element={<Blog />} />
           <Route path="/" element={<Blog />} />
           <Route path="/login" element={<Login />} />
-
-          <Route path="/Social-Blogging-App-2.0/login" element={<Login />} />
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/profile/:id/new" element={<CreateBlog />}></Route>
           <Route path="/profile/:id/:blogId/edit" element={<Edit />} />
@@ -36,8 +34,6 @@ export default function App() {
             element={<EditProfile />}
           />
           <Route path="/signup" element={<Signup />} />
-
-          <Route path="/Social-Blogging-App-2.0/signup" element={<Signup />} />
 
 
           
