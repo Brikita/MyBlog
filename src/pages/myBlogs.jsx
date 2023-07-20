@@ -34,7 +34,7 @@ const MyBlogs = () => {
         return (
         <div key={blog._id} className='blog-container'>
             <div className='blog-title'>
-                <Link className="blogs-link title" to={`/profile/${userId}/${blog._id}`}><h1>{blog.title}</h1></Link>
+                <Link className="blogs-link title" to={`/profile/${userId}/${blog._id}`}><h4>{blog.title}</h4></Link>
             </div>
             <div className='blog-author' >{blog.author}    <span className='blog-date'>{blog.createdAt}</span></div>
         </div>)

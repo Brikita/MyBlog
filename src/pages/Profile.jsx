@@ -5,6 +5,7 @@ import MyBlogs from "./myBlogs"
 import './profile.css'
 import { useParams } from "react-router"
 import DisplayUser from "../components/DisplayUser"
+import Navbar from "../Navbar"
 
 
 export default function Profile() {
@@ -101,6 +102,7 @@ export default function Profile() {
 
     return (
         <div className="profile--page">
+            
             <Header />
             <DisplayUser />
 

@@ -24,11 +24,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
 
           <Route path="/Social-Blogging-App-2.0/login" element={<Login />} />
-          <Route path="/profile/:id" element={<Profile />} >
-            <Route path="blogs">
-            <Route index element={<MyBlogs />} />
-            </Route>
-          </Route>
+          <Route path="/profile/:id" element={<Profile />} />
           <Route path="/profile/:id/new" element={<CreateBlog />}></Route>
           <Route path="/profile/:id/:blogId/edit" element={<Edit />} />
           <Route path="/profile/:id/:blogId" element={<ViewBlog />} />
@@ -42,15 +38,15 @@ export default function App() {
           <Route path="/Social-Blogging-App-2.0/signup" element={<Signup />} />
 
 
-          <Route path="/profile/myblogs" element={<MyBlogs />} />
-          <Route path="/:id" element={<ViewBlog />} />
-          <Route path="/:id/edit" element={<Edit />} />
+          
+         
+          
 
-          <Route path="/Social-Blogging-App-2.0/profile/:id/edit" element={<Edit />} />
+          
           <Route path="/Social-Blogging-App-2.0/:id/comment" element={<ShowPost />} />
 
 
-          <Route path="/new" element={<CreateBlog />} />
+          
 
         </Routes>
       </div>
