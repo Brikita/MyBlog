@@ -22,6 +22,7 @@ export default function App() {
       <div>
         <Routes>
           <Route path="/:id" element={<Blog />} />
+          <Route path="/" element={<Blog />} />
           <Route path="/login" element={<Login />} />
 
           <Route path="/Social-Blogging-App-2.0/login" element={<Login />} />
