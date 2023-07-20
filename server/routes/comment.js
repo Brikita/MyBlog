@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Blog = require("../models/blogs");
 
-router.patch("/blogs/:id/comments", async (req, res) => {
+router.put("/blogs/:id/comments", async (req, res) => {
   const blogId = req.params.id;
   const {author, content} = req.body;
   const comment = {author, content}

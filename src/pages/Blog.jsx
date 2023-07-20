@@ -74,7 +74,7 @@ export default function Blog() {
           </form>
         </div>
 
-        <h1>Welcome to My Blogging Website</h1>
+        <h1 className='headding' >Welcome to My Blogging Website</h1>
         <br />
         <div className="blog-posts">
           {searchResults.map((post) => (
