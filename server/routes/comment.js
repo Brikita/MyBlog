@@ -2,12 +2,10 @@ const express = require("express");
 const router = express.Router();
 const Blog = require("../models/blogs");
 
-router.post("/blogs/:id/comments", async (req, res) => {
+router.patch("/blogs/:id/comments", async (req, res) => {
   const blogId = req.params.id;
-  const comment = {
-    author: req.body.author,
-    content: req.body.content,
-  };
+  const {author, content} = req.body;
+  const comment = {author, content}
   try {
     // Find the blog document by its ID
     const blog = await Blog.findById(blogId);
@@ -18,7 +16,7 @@ router.post("/blogs/:id/comments", async (req, res) => {
     // Add the comment to the comments array
     blog.comments.push(comment);
     // Save the updated blog document
-    const updatedBlog = await blog.save();
+    const updatedBlog = await blog.save(); 
 
     res.status(201).json(updatedBlog);
   } catch (err) {
