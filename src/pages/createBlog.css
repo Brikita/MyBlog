@@ -13,6 +13,7 @@ form {
 }
 form input {
     margin: 0.5rem 1rem;
+    width: fit-content;
     padding: 0.5rem 1rem;
 }
 form #content {

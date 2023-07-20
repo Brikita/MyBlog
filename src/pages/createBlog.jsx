@@ -28,7 +28,7 @@ const createBlog = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="title"> Title 
           <input
-            placeholder="your Title"
+            placeholder="your title"
             type="text"
             name="title"
             id="title"
@@ -37,7 +37,7 @@ const createBlog = () => {
         </label>
         <label htmlFor="author"> Name 
           <input
-            placeholder="your Name"
+            placeholder="your name"
             type="text"
             name="author"
             id="author"

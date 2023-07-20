@@ -62,7 +62,7 @@ const Edit = () => {
           />
         </label>
         <label htmlFor="content">
-          <input
+          <textarea
             placeholder="Your content..."
             type="text"
             name="content"
