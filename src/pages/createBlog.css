@@ -74,3 +74,9 @@ button {
 .blog-container {
     text-align: center;
 }
+
+h1.blog-title {
+    font-size: 4rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
